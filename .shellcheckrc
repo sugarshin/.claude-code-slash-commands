@@ -1,0 +1,16 @@
+# Shellcheck configuration for Claude Code Slash Commands
+
+# Set shell type
+shell=bash
+
+# External sources (files that shellcheck should not try to follow)
+external-sources=true
+
+# Check for POSIX compliance where possible
+check-sourced=true
+
+# Format output
+format=gcc
+
+# Only disable truly necessary checks with clear justification
+disable=SC1091  # Not following sourced files - we don't source external files in this project

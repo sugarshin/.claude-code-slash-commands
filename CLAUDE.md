@@ -145,4 +145,3 @@ Regular maintenance involves:
 - Testing commands across different project types
 - Keeping management scripts current
 - Updating documentation and examples
-
