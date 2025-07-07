@@ -1,6 +1,6 @@
 # .claude-code-slash-commands
 
-A shared repository for common Claude Code slash commands, using symbolic links to share commands across multiple projects.
+My Shareable Claude Code Slash Commands, using symbolic links to share commands across multiple projects.
 
 ## 📋 Available Slash Commands
 
@@ -186,7 +186,7 @@ Use $ARGUMENTS to get user arguments.
 
 ```sh
 # Re-run setup script
-./setup.sh --force
+ccsc-setuop --force
 
 # Use in Claude Code
 /mycommand
@@ -203,7 +203,7 @@ Use $ARGUMENTS to get user arguments.
 ls -la .claude/commands/
 
 # Re-run setup script
-./setup.sh --force
+ccsc-setup --force
 ```
 
 #### Permission Errors
