@@ -1,6 +1,6 @@
 # .claude-code-slash-commands
 
-My Shareable Claude Code Slash Commands, using symbolic links to share commands across multiple projects.
+My shareable Claude Code slash commands, using symbolic links to share commands across multiple projects.
 
 ## 📋 Available Slash Commands
 
@@ -79,7 +79,7 @@ ccsc-setup
 /commit "feat: add new feature"
 ```
 
-- Check current Git status
+- Check current git status
 - Analyze changes to determine commit type
 - Generate Conventional Commits format messages
 - Execute commits automatically
