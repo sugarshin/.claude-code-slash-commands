@@ -81,11 +81,13 @@ if [[ -f "$ZSHRC" ]]; then
     
     # Check for existing entries
     if ! grep -q "claude-commands" "$ZSHRC"; then
-        echo "" >> "$ZSHRC"
-        echo "# Claude Code Slash Commands" >> "$ZSHRC"
-        echo "export PATH=\"$INSTALL_DIR:\$PATH\"" >> "$ZSHRC"
-        echo "alias ccsc-setup=\"$INSTALL_DIR/setup.sh\"" >> "$ZSHRC"
-        echo "alias ccsc-update=\"$INSTALL_DIR/utils/update.sh\"" >> "$ZSHRC"
+        {
+            echo ""
+            echo "# Claude Code Slash Commands"
+            echo "export PATH=\"${INSTALL_DIR}:\$PATH\""
+            echo "alias ccsc-setup=\"${INSTALL_DIR}/setup.sh\""
+            echo "alias ccsc-update=\"${INSTALL_DIR}/utils/update.sh\""
+        } >> "$ZSHRC"
         print_success "Added to Zsh configuration"
     else
         print_info "Existing entry found (skipping)"

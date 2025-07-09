@@ -223,6 +223,47 @@ ccsc-update
 # Restart Claude Code
 ```
 
+## 🧪 Development & Testing
+
+### Prerequisites
+
+```sh
+# Install development dependencies
+brew install shellcheck bats-core  # macOS
+```
+
+### Running Tests
+
+```sh
+# Run all tests
+make test
+
+# Run linting
+make lint
+
+# Run both lint and test
+make check
+
+# Install dependencies
+make install
+```
+
+### Test Structure
+
+- `tests/setup.bats` - Tests for main setup script
+- `tests/install.bats` - Tests for installation process
+- `tests/commands.bats` - Tests for command file structure
+- `tests/helpers/test_helper.bash` - Common test utilities
+
+### Continuous Integration
+
+The project uses GitHub Actions for CI/CD:
+- ✅ Shell script linting with Shellcheck
+- ✅ Automated testing with Bats
+- ✅ Cross-platform testing (Ubuntu, macOS)
+- ✅ Integration testing
+- ✅ Security scanning
+
 ## 📜 License
 
 This project is published under the MIT License. See [LICENSE](LICENSE) file for details.
@@ -232,3 +273,5 @@ This project is published under the MIT License. See [LICENSE](LICENSE) file for
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [Claude Code Slash Commands](https://docs.anthropic.com/en/docs/claude-code/slash-commands)
 - [Conventional Commits](https://conventionalcommits.org/)
+- [Shellcheck](https://www.shellcheck.net/)
+- [Bats Testing Framework](https://bats-core.readthedocs.io/)

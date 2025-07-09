@@ -1,0 +1,13 @@
+# Bats configuration file
+
+# Default options for bats
+export BATS_LIB_PATH="tests/helpers"
+
+# Test timeout (in seconds)
+export BATS_TEST_TIMEOUT=30
+
+# Parallel execution
+export BATS_NO_PARALLELIZE_ACROSS_FILES=1
+
+# Test output format
+export BATS_TEST_FORMATTER="tap"

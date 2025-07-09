@@ -128,6 +128,8 @@ Scripts include:
 - Existence checks for required directories
 - Proper error messages with colored output
 - Graceful handling of existing files (with --force option)
+- Robust symbolic link creation using absolute paths
+- Proper arithmetic operations compatible with `set -e`
 
 ## Shell Integration
 
@@ -137,12 +139,98 @@ The installation script adds:
 - Convenient aliases (`ccsc-setup`, `ccsc-update`)
 - Shell configuration updates for Zsh
 
+## Testing and Quality Assurance
+
+The project includes comprehensive testing and linting infrastructure:
+
+### Linting with Shellcheck
+
+```sh
+# Run shellcheck on all shell scripts
+make lint
+# or
+scripts/lint.sh
+
+# Check specific script
+shellcheck setup.sh
+```
+
+### Testing with Bats
+
+```sh
+# Run all tests
+make test
+# or
+scripts/test.sh
+
+# Run tests with verbose output
+scripts/test.sh --verbose
+
+# Run specific test file
+bats tests/setup.bats
+```
+
+### Test Structure
+
+- `tests/helpers/test_helper.bash` - Common test utilities and setup functions
+- `tests/setup.bats` - Tests for the main setup script
+- `tests/install.bats` - Tests for the installation process
+- `tests/commands.bats` - Tests for command file structure and format
+
+### Configuration Files
+
+- `.bats-rc` - Bats configuration for consistent test execution
+- `.shellcheckrc` - ShellCheck configuration for linting standards
+- `Makefile` - Build automation for development tasks
+
+### Continuous Integration
+
+GitHub Actions workflow (`.github/workflows/ci.yml`) runs:
+
+- **Lint and Test Job**: 
+  - ShellCheck linting using `reviewdog/action-shellcheck@v1.30.0`
+  - Bats testing using `bats-core/bats-action@3.0.1`
+- **Integration Job**: End-to-end installation and setup testing
+
+### Development Commands
+
+```sh
+# Install development dependencies
+make install
+
+# Run full check (lint + test)
+make check
+
+# Set up development environment
+make setup-dev
+
+# Clean test artifacts
+make clean
+```
+
 ## Maintenance
 
 Regular maintenance involves:
 
+- Running `make check` before commits
 - Updating command implementations
 - Testing commands across different project types
 - Keeping management scripts current
 - Updating documentation and examples
+- Monitoring CI pipeline health
 
+## Technical Improvements
+
+### CI/CD Infrastructure
+
+- **GitHub Actions Workflow**: Automated testing and linting on every push and pull request
+- **ShellCheck Integration**: Comprehensive shell script linting with configurable rules
+- **Bats Testing Framework**: Structured testing for all shell scripts and functionality
+- **Integration Testing**: End-to-end testing of installation and setup processes
+
+### Script Robustness
+
+- **Absolute Path Handling**: All symbolic links use absolute paths for cross-directory compatibility
+- **Strict Error Handling**: Scripts use `set -e` with proper arithmetic operations (`$((var + 1))` instead of `((var++))`)
+- **Verbose Output Control**: Conditional verbose logging to reduce noise while maintaining debugging capability
+- **Cross-Platform Compatibility**: Tested on Ubuntu and macOS environments
